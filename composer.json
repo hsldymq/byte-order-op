@@ -1,0 +1,17 @@
+{
+  "name": "hsldymq/byte-order-op",
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Archman\\ByteOrder\\": "./src"
+    },
+    "files": [
+      "./src/functions.php"
+    ]
+  }
+}
