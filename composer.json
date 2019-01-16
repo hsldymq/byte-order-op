@@ -9,9 +9,6 @@
   "autoload": {
     "psr-4": {
       "Archman\\ByteOrder\\": "./src"
-    },
-    "files": [
-      "./src/functions.php"
-    ]
+    }
   }
 }
