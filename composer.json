@@ -2,6 +2,7 @@
   "name": "hsldymq/byte-order-op",
   "description": "字节序操作工具",
   "keywords": ["byte order"],
+  "license": "MIT",
   "authors": [
     {
       "name": "hsldymq",
