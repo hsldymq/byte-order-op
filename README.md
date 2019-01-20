@@ -40,11 +40,22 @@
     // 64位机器: 0x7F 0x00 0x00 0x00 0x00 0x00 0x00 0x00
     // 32位机器: 0x7F 0x00 0x00 0x00
     $byteArrLE = Operator::toByteArray(127, ByteOrder::LITTLE_ENDIAN);
+    if (PHP_INT_SIZE === 8) {
+        assert($byteArrLE === "\x7F\x00\x00\x00\x00\x00\x00\x00");
+    } else {
+        assert($byteArrLE === "\x7F\x00\x00\x00");
+    }
+    
     
     // 输出应该为(从左到右为低字节到高字节):
     // 64位机器: 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x7F
     // 32位机器: 0x00 0x00 0x00 0x7F
     $byteArrBE = Operator::toByteArray(127, ByteOrder::BIG_ENDIAN);
+    if (PHP_INT_SIZE === 8) {
+        assert($byteArrLE === "\x00\x00\x00\x00\x00\x00\x00\x7F");
+    } else {
+        assert($byteArrLE === "\x00\x00\x00\x7F");
+    }
 ```
 
 ```php
