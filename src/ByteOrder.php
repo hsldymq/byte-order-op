@@ -10,9 +10,6 @@ class ByteOrder
     // 大端字节序
     const BIG_ENDIAN    = 0x1;
 
-    // 主机字节序
-    const HOST_ENDIAN   = 0x2;
-
     public static function get()
     {
         static $order;
