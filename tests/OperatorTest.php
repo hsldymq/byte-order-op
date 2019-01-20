@@ -6,34 +6,30 @@ use Archman\ByteOrder\Operator;
 
 class OperatorTest extends TestCase
 {
-    public function testSetByteOrder()
-    {
-        ByteOrder::set(ByteOrder::LITTLE_ENDIAN);
-        $this->assertEquals(ByteOrder::LITTLE_ENDIAN, ByteOrder::get());
-
-        ByteOrder::set(ByteOrder::BIG_ENDIAN);
-        $this->assertEquals(ByteOrder::BIG_ENDIAN, ByteOrder::get());
-    }
-
-    /**
-     * @depends testSetByteOrder
-     */
     public function testMakeByteArray()
     {
+        $is64 = PHP_INT_SIZE === 8;
+
         $arr = Operator::toByteArray(0x1001, ByteOrder::LITTLE_ENDIAN);
-        $expect = PHP_INT_SIZE === 8 ? "\x01\x10\x00\x00\x00\x00\x00\x00" : "\x01\x10\x00\x00";
+        $expect = $is64 ? "\x01\x10\x00\x00\x00\x00\x00\x00" : "\x01\x10\x00\x00";
         $this->assertEquals($expect, $arr);
 
         $arr = Operator::toByteArray(0x1001, ByteOrder::BIG_ENDIAN);
-        $expect = PHP_INT_SIZE === 8 ? "\x00\x00\x00\x00\x00\x00\x10\x01" : "\x00\x00\x10\x01";
+        $expect = $is64 ? "\x00\x00\x00\x00\x00\x00\x10\x01" : "\x00\x00\x10\x01";
         $this->assertEquals($expect, $arr);
     }
 
     /**
-     * @before
+     * @depends testMakeByteArray
      */
-    public function resetByteOrder()
+    public function testTransformInt()
     {
-        ByteOrder::reset();
+        // 实际机器的字节序
+        $isLitteEndian = ByteOrder::isLittleEndian();
+        $is64 = PHP_INT_SIZE === 8;
+
+        $expect = $is64 ? 0x3031000000000000 : 0x30310000;
+        $endian = $isLitteEndian ? ByteOrder::BIG_ENDIAN : ByteOrder::LITTLE_ENDIAN;
+        $this->assertEquals($expect, Operator::transformInt(0x3130, $endian));
     }
 }
