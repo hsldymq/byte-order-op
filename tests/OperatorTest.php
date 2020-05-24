@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use PHPUnit\Framework\TestCase;
 use Archman\ByteOrder\ByteOrder;
 use Archman\ByteOrder\Operator;
