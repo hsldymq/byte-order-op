@@ -12,7 +12,7 @@ class ByteOrder
     // 大端字节序
     const BIG_ENDIAN    = 0x1;
 
-    public static function get()
+    public static function get(): int
     {
         static $order;
 
