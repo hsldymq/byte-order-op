@@ -1,5 +1,7 @@
 # 字节序操作工具
 
+[![Build Status](https://app.travis-ci.com/hsldymq/byte-order-op.svg?branch=master)](https://app.travis-ci.com/hsldymq/byte-order-op)
+
 **用于将数据在小端和大端存储之间转换.**
 
 例如当前机器为64位小端机器,对于整型数字127,在内存中存储结构为:
