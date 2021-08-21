@@ -26,11 +26,11 @@ class OperatorTest extends TestCase
      */
     public function testTransformInt()
     {
-        $isLitteEndian = ByteOrder::isLittleEndian();
+        $isLittleEndian = ByteOrder::isLittleEndian();
         $is64 = PHP_INT_SIZE === 8;
 
         $expect = $is64 ? 0x3031000000000000 : 0x30310000;
-        $toByteOrder = $isLitteEndian ? ByteOrder::BIG_ENDIAN : ByteOrder::LITTLE_ENDIAN;
+        $toByteOrder = $isLittleEndian ? ByteOrder::BIG_ENDIAN : ByteOrder::LITTLE_ENDIAN;
         $this->assertEquals($expect, Operator::transformInt(0x3130, $toByteOrder));
     }
 }
