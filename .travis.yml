@@ -2,7 +2,6 @@ language: php
 
 arch:
   - amd64
-  - s390x
 
 os: linux
 
@@ -13,6 +12,12 @@ php:
   - '7.3'
   - '7.4'
   - '8.0'
+
+jobs:
+  include:
+    - php: 8.0
+      os: linux
+      arch: s390x   # 测试大端机器
 
 install: composer install
 
