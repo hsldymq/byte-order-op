@@ -1,6 +1,7 @@
 # 字节序操作工具
 
 [![Build Status](https://app.travis-ci.com/hsldymq/byte-order-op.svg?branch=master)](https://app.travis-ci.com/hsldymq/byte-order-op)
+[![codecov](https://codecov.io/gh/hsldymq/byte-order-op/branch/master/graph/badge.svg?token=WMIX1KBLH4)](https://codecov.io/gh/hsldymq/byte-order-op)
 
 **用于将数据在小端和大端存储之间转换.**
 
