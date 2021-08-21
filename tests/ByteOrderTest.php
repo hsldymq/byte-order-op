@@ -17,8 +17,10 @@ class ByteOrderTest extends TestCase
         $byteOrder = ByteOrder::get();
         $pyBO = trim(exec("python -c 'import sys;print(sys.byteorder)'"));
         if ($pyBO === 'little') {
+            echo "little endian\n";
             $this->assertEquals(ByteOrder::LITTLE_ENDIAN, $byteOrder);
         } else {
+            echo "big endian\n";
             $this->assertEquals(ByteOrder::BIG_ENDIAN, $byteOrder);
         }
     }
