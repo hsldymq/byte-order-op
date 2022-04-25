@@ -1,6 +1,6 @@
 # 字节序操作工具
 
-[![Build Status](https://app.travis-ci.com/hsldymq/byte-order-op.svg?branch=master)](https://app.travis-ci.com/hsldymq/byte-order-op)
+![tests](https://github.com/joyparty/owl/actions/workflows/unit-tests.yml/badge.svg)
 [![codecov](https://codecov.io/gh/hsldymq/byte-order-op/branch/master/graph/badge.svg?token=WMIX1KBLH4)](https://codecov.io/gh/hsldymq/byte-order-op)
 
 **用于将数据在小端和大端存储之间转换.**
@@ -13,7 +13,13 @@
 
 `00000000 00000000 00000000 00000000 00000000 00000000 00000000 01111111`
 
-### PHP >= 7.0.0
+### PHP 版本
+PHP 7.0+ || PHP 8.0+
+
+## 安装
+```shell
+composer require hsldymq/byte-order-op
+```
 
 ## Examples
 
